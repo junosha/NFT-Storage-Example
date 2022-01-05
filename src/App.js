@@ -40,7 +40,7 @@ function App() {
 
   const RenderImageDetails = () => {
     const img_length = imageFile.length;
-    return <div>{img_length > 1 ? `${img_length} selected` : imageFile[0].name}</div>;
+    return <div>{img_length > 1 ? `${img_length} selected` : imageFile[0]?.name}</div>;
   };
 
   const RenderImageSelect = () => {
