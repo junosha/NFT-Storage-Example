@@ -11,7 +11,6 @@ function App() {
   const handleChange = (e) => {
     e.preventDefault();
     const files = e.target.files;
-
     if (files) {
       setImageFile(Array.from(files));
     }
@@ -39,6 +38,11 @@ function App() {
       .then((response) => setLoading(false));
   };
 
+  const RenderImageDetails = () => {
+    const img_length = imageFile.length;
+    return <div>{img_length > 1 ? `${img_length} selected` : imageFile[0].name}</div>;
+  };
+
   const RenderImageSelect = () => {
     return (
       <div>
@@ -61,6 +65,7 @@ function App() {
         {!isLoading ? (
           <div>
             <RenderImageSelect />
+            <RenderImageDetails />
             <button onClick={handleSubmit}>Submit</button>
           </div>
         ) : (
